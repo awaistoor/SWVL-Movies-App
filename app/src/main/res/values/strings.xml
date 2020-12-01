@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Swvl Movies</string>
+    <string name="dummy_title">Dummy Title</string>
+    <string name="dummy_year">1992</string>
+    <string name="dummy_genre">Comedy</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="cast">Cast:</string>
+    <string name="year">Year:</string>
+    <string name="no_image_found_error">No image found against this movie.</string>
+    <string name="search">Search</string>
+</resources>

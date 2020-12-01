@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".modules.movies_list_screen.view.MoviesListActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.swvlmoviesapp.modules.movies_list_screen.viewmodel.MovieListViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/toolbar_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:title="@string/app_name"
+                app:titleTextAppearance="@style/AppTextView.ToolbarTitle" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isProgress() ? View.VISIBLE : View.GONE, default=visible}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/moviesList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adapter="@{viewModel.moviesAdapter}"
+            android:visibility="@{viewModel.isProgress() ? View.GONE : View.VISIBLE, default=gone}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:itemCount="1000"
+            tools:listitem="@layout/holder_movie_item" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/_10sdp"
+            android:onClick="@{(v) -> viewModel.onSearchClicked(v)}"
+            android:src="@drawable/ic_search"
+            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
