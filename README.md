@@ -3,8 +3,11 @@
 
 An android application developed as a technical challenge from SWVL.
 
-
 ![Version v1.0 Badge][version-badge] ![Android 30+ Badge][android-version-badge]
+
+#### Release Version
+
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1200px-Google_Play_Store_badge_EN.svg.png" width="150" height="50" alt="SWVL Movies App" />](https://www.dropbox.com/s/grygkwph4iibdbq/app-release.apk?dl=0)
 
 ## Prerequisites
 
